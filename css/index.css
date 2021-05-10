@@ -1,0 +1,475 @@
+/* GLOBAL */
+header, section, footer, aside, nav, main, article, figure {
+    display: block;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+      box-sizing: border-box;
+  }
+
+  html,body{
+    font-family: 'Montserrat',sans-serif ;
+    /* 1 rem = 18px */
+    /* font-size: 18px; */
+    /* khong khai bao thi mac dinh 1 rem = 16px */
+  }
+  button{
+    padding: 10px 20px;
+    background-color: #4e2a84;
+    color:white;
+    border:none;
+    border-radius: 5px;
+
+  }
+
+  /* HEADER */
+
+  header{
+    background-color: #4e2a84;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .header__content ul li{
+    list-style: none;
+    display: inline;
+    margin: 0 10px;
+  }
+
+  .header__content ul li a{
+    text-decoration: none;
+    color: white;
+  }
+
+  .header__content ul .active a{
+    color: #ff0e83;
+  }
+
+  .header__content p{
+    color: white;
+
+    /* font-size: 36px; */
+    font-size: 2.25rem;
+  }
+
+  .header__content{
+    display: flex;
+    /* chinh khoang cach theo chieu ngang 
+    space-around: khoang cach chia deu cho cac the con.
+    space-between: thẻ con đầu tiên canh sát lề bên trái, thẻ con cuối cùng canh sát lề phải, thẻ ở giữa chia đều khoang cach
+    */
+    justify-content:space-around;
+
+    /* canh nội dung thẻ con theo chiều dọc */
+    align-items: center;
+
+    width: 70%;
+    margin: 0 auto;
+
+    padding: 30px 0;
+  }
+
+  /* CAROUSEL */
+  .carousel{
+    background-image: url('../img/b3.jpg');
+    height: 650px;
+    background-size: cover;
+    background-position: center;
+
+    /* chi dung cho 1 thẻ duy nhat */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+  }
+  .carousel h1{
+    animation: upDown 10s linear infinite;
+  }
+  @keyframes upDown{
+    0%{}
+    25%{
+      transform: translateY(-50px) scale(2);
+    }
+    50%{
+      transform: translateY(0) ;
+    }
+    75%{
+      transform: translateY(50px) scale(2);
+    }
+    100%{
+      transform: translateY(0) ;
+    }
+
+}
+  /* INTRO */
+
+  .intro{
+    display: grid;
+    /* grid-template-columns:25% 25% 25% 25% ; */
+    /* grid-template-columns:repeat(4,25%); */
+    /* fr */
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .intro__ab1{
+    /* grid-column: 2 / 4; */
+    grid-column: 2 / span 2;
+  }
+
+  .intro__bake{
+    /* grid-column: 1 / 3; */
+    grid-column: 1 / span 2;
+  }
+
+  .intro__ab4{
+    /* grid-column: 3 / 5; */
+    grid-column: 3 / span 2;
+  }
+
+  .intro__items img{
+    width: 100%;
+    display: block;
+  }
+
+
+  /* NUMBER */
+
+  .number{
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+
+    text-align: center;
+
+    padding: 50px 0;
+  }
+/* :nth-child(1) */
+  .number__items p:first-child{
+      color:#4e2a84;
+      font-weight: 700;
+  }
+
+
+  /* SERVICES */
+    .services{
+      padding: 50px 0;
+    }
+  .services__content{
+    display: flex;
+    /* justify-content: space-around; */
+    text-align: center;
+
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .services__items{
+    padding: 0 20px;
+  }
+
+  .services__items i{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+
+    border: 1px solid #4e2a84;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 3.5rem;
+    color: #4e2a84;
+
+    /* transition-property: thuộc tính css thay đổi (color) */
+    /* transition-duration: 1s; */
+    /* transition-delay: 1s; */
+    transition:all .5s linear;
+
+  }
+
+  .services__items:hover i{
+    color: #ff0e83;
+  }
+
+  /* GALLERY */
+
+  .gallery__content{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:20px;
+    padding: 0 20px;
+  }
+
+  .gallery__items1{
+    /* grid-column:1 / 3 ; */
+    grid-column:1 / span 2 ;
+  }
+
+  .gallery__items6{
+    /* grid-column: 3 / 5; */
+    grid-column: 3 / span 2;
+  }
+
+  .gallery__items img{
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .gallery__items{
+    position: relative;
+  }
+  .gallery__text{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    padding: 30px 25px;
+    color: white;
+    /* #3085a3 */
+    background-color: rgba(48, 132, 163, 0.3);
+  }
+
+  .gallery__text p{
+    position: absolute;
+    right:25px;
+    bottom: 30px;
+
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  .gallery__items:hover .gallery__text p{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  /* .gallery__text h3::before{
+    content: 'THE ';
+  }
+
+  .gallery__text h3::after{
+    content: ' !';
+  } */
+
+  .gallery__text h3::after{
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    display: block;
+    margin-top: 15px;
+
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  .gallery__items:hover .gallery__text h3::after{
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .gallery__text h3{
+    transform: translateY(50px);
+    transition: all 0.5s;
+  }
+
+  .gallery__items:hover .gallery__text h3{
+    transform: translateY(0);
+  }
+/* TEAM */
+.team{
+  background-color: slateblue;
+  margin-top: 50px;
+}
+.team h1{
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+.team_content{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:20px;
+    margin: 20px auto;
+    width: 85%;
+}
+.team{
+  padding: 50px 0;
+}
+.team_items img{
+  width: 100%;
+  display: block;
+}
+.team_items{
+  position: relative;
+}
+.team_pink{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #ff0e83;
+  color: white;
+  width: 100%;
+  padding: 20px 25px;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.team_black{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 130px;
+  padding-left: 50px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.team_black h3{
+  color: #ff0e83;
+}
+.team_items:hover .team_pink{
+  opacity: 0;
+}
+.team_items:hover .team_black{
+  opacity:1;
+}
+.team_items2{
+  overflow: hidden;
+}
+.team_items2 .team_black{
+  opacity: 1;
+  transform: translateX(-100%);
+}
+.team_items2:hover .team_black{
+  transform: translateX(0);
+}
+.team_items3{
+  overflow: hidden;
+}
+.team_items3 .team_black{
+  opacity: 1;
+  transform: rotate(0);
+}
+.team_items3:hover .team_black{
+  transform: rotate(360deg);
+}
+.team_items4{
+  overflow: hidden;
+}
+.team_items4 .team_black{
+  opacity: 1;
+  transform: scale(0);
+}
+.team_items4:hover .team_black{
+  transform: scale(1);
+}
+/* FEEDBACK */
+.feedback{
+  background-color: purple;
+  padding: 50px;
+}
+.feedback h1{
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+.feedback_content{
+  width: 85%;
+  margin: 0 auto;
+  padding: 30px;
+  border:2px solid #ff0e83;
+  text-align: center;
+  background-color: white;
+}
+/* CONTACT */
+.contact{
+  padding: 50px;
+}
+.contact_content h1{
+  text-align: center;
+}
+.contact_form{
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:20px;
+    width: 85%;
+    align-items: center;
+}
+.contact_form_input{
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 15px;
+  outline: none;
+}
+.contact_form_input:focus{
+  /* outline: none; */
+  box-shadow: 0 0 0 2px rgba(248, 4, 195, 0.788);
+}
+.contact_form textarea{
+  grid-column: 1 / span 2;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 200px;
+}
+.contact_form textarea:focus{
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(248, 4, 195, 0.788);
+}
+.contact_form textarea::placeholder{
+  color: aqua;
+  font-size: 16px;
+}
+.contact_form button{
+  grid-column: 1 / span 2;
+  color:black;
+  background-color: #ff0e83;
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+.map_content{
+  padding: 50px;
+}
+.map h1{
+    text-align: center;
+}
+.map_content iframe{
+ width: 100%;
+ height: 500px;
+}
+/* BACK TO TOP */
+.toTop{
+  position: fixed;
+  color: #0effcb;
+  font-size: 2rem;
+  right: 50px;
+  bottom: 50px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #0effcb;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cd-top--is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
